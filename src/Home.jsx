@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import Searchbar from "./Searchbar";
+import Filters from "./Filters";
+import Cards from "./Cards";
 
 const Home = () => {
 	const [status, setStatus] = useState("idle");
-	const [char, setChar] = useState([]);
+	const [charArr, setCharArr] = useState([]);
 
 	useEffect(() => {
 		setStatus("loading");
@@ -15,7 +18,7 @@ const Home = () => {
 				return response.json();
 			})
 			.then((data) => {
-				setChar(data.results);
+				setCharArr(data?.results);
 				setStatus("done");
 			})
 			.catch((error) => {
@@ -34,14 +37,21 @@ const Home = () => {
 	return (
 		<div>
 			<figure className="text-center mt-3">
-				<blockquote className="blockquote fs-4">
-					<p>"To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules drifting wherever the universe blows you."</p>
+				<blockquote className="blockquote fs-5">
+					<p>
+						"To live is to risk it all; otherwise you’re just an inert chunk of
+						randomly assembled molecules drifting wherever the universe blows
+						you."
+					</p>
 				</blockquote>
-				<figcaption className="blockquote-footer fs-4 light text-white">
+				<figcaption className="blockquote-footer fs-6 light text-white">
 					<cite title="Source Title">Rick</cite>
 				</figcaption>
 			</figure>
-			<img src={char[0]?.image} alt={char[0]?.name} />
+
+			<Searchbar />
+			<Filters />
+			<Cards charArr={charArr} />
 		</div>
 	);
 };

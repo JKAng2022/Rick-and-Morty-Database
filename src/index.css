@@ -10,7 +10,7 @@ body {
 
 	color: white;
 	background: url('./images/wallpaper.jpg');
-	background-size: cover;
+	background-size: 100vw;
 
 }
 
