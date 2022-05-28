@@ -27,7 +27,7 @@ const Filters = ({ setStatus, setGender, setPageNum }) => {
 			<select
 				onChange={changeStatus}
 				ref={statusSelect}
-				className="form-select mx-4"
+				className="form-select mx-4 text-center"
 				aria-label="Status"
 				style={{ width: "18rem" }}
 			>
@@ -41,7 +41,7 @@ const Filters = ({ setStatus, setGender, setPageNum }) => {
 			<select
 				onChange={changeGender}
 				ref={genderSelect}
-				className="form-select mx-4"
+				className="form-select mx-4 text-center"
 				aria-label="Gender"
 				style={{ width: "18rem" }}
 			>

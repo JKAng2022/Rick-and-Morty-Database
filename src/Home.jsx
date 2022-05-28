@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Searchbar from "./Searchbar";
 import Filters from "./Filters";
 import Cards from "./Cards";
+import Page from "./Page";
 
 const Home = () => {
 	const [charArr, setCharArr] = useState([]);
@@ -10,6 +11,7 @@ const Home = () => {
 	const [search, setSearch] = useState("");
 	const [status, setStatus] = useState("");
 	const [gender, setGender] = useState("");
+	const [totalPages, setTotalPages] = useState(1);
 
 	const api = `https://rickandmortyapi.com/api/character/?page=${pageNum}&name=${search}&status=${status}&gender=${gender}`;
 
@@ -23,8 +25,14 @@ const Home = () => {
 			})
 			.then((data) => {
 				setCharArr(data?.results);
+				console.log("total pages", data?.info?.pages);
+				setTotalPages(data?.info?.pages);
 			});
 	}, [api]);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<div>
@@ -37,7 +45,9 @@ const Home = () => {
 					</h5>
 				</blockquote>
 				<figcaption className="blockquote-footer fs-6 light text-white">
-					<cite title="Source Title">Rick</cite>
+					<cite title="Source Title">
+						Rick (Season 3, Episode 2: Rickmancing the stone)
+					</cite>
 				</figcaption>
 			</figure>
 
@@ -48,6 +58,7 @@ const Home = () => {
 				setPageNum={setPageNum}
 			/>
 			<Cards charArr={charArr} />
+			<Page totalPages={totalPages} setPageNum={setPageNum} pageNum={pageNum} />
 		</div>
 	);
 };
