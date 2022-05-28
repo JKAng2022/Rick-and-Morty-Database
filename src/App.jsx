@@ -1,7 +1,17 @@
-import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Home";
 
 const App = () => {
-  return ( <h1>Hi World</h1> );
-}
- 
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Home />} />
+			</Routes>
+		</BrowserRouter>
+	);
+};
+
 export default App;
