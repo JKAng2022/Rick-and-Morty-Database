@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cards = ({ charArr }) => {
+	const navigate = useNavigate();
 	return (
 		<div>
 			<div className="d-flex flex-wrap justify-content-center">
@@ -8,7 +10,8 @@ const Cards = ({ charArr }) => {
 					<div
 						className="card mx-3 my-3"
 						key={index}
-						style={{ width: "10rem" }}
+						style={{ width: "10rem", cursor: "pointer" }}
+						onClick={() => navigate(`/${char.id}`)}
 					>
 						<img
 							src={char.image}

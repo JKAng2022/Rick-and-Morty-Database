@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
+import SpecificCard from "./SpecificCard";
 
 const App = () => {
 	return (
@@ -13,6 +14,7 @@ const App = () => {
 
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/:id" element={<SpecificCard />} />
 			</Routes>
 		</BrowserRouter>
 	);
