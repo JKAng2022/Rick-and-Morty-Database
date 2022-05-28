@@ -5,12 +5,14 @@ import Filters from "./Filters";
 import Cards from "./Cards";
 
 const Home = () => {
-	const [status, setStatus] = useState("idle");
 	const [charArr, setCharArr] = useState([]);
+	const [pageNum, setPageNum] = useState(1);
+	const [search, setSearch] = useState("");
+
+	const api = `https://rickandmortyapi.com/api/character/?page=${pageNum}&name=${search}`;
 
 	useEffect(() => {
-		setStatus("loading");
-		fetch(`https://rickandmortyapi.com/api/character`)
+		fetch(api)
 			.then((response) => {
 				if (!response.ok) {
 					throw new Error(response.statusText);
@@ -19,20 +21,8 @@ const Home = () => {
 			})
 			.then((data) => {
 				setCharArr(data?.results);
-				setStatus("done");
-			})
-			.catch((error) => {
-				setStatus("error");
 			});
-	}, []);
-
-	if (status === "loading") {
-		return <h1 className="text-center">Loading</h1>;
-	}
-
-	if (status === "error") {
-		return <h1 className="text-center">Mad Errors</h1>;
-	}
+	}, [api]);
 
 	return (
 		<div>
@@ -49,7 +39,7 @@ const Home = () => {
 				</figcaption>
 			</figure>
 
-			<Searchbar />
+			<Searchbar setSearch={setSearch} setPageNum={setPageNum} />
 			<Filters />
 			<Cards charArr={charArr} />
 		</div>

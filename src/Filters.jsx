@@ -1,31 +1,28 @@
 import React from "react";
 
 const Filters = () => {
-
-
 	return (
-		<div className="container mb-5">
-			<div className="row">
-				<select
-					className="col form-select"
-					aria-label="Status"
-				>
-					<option selected>Filter by status</option>
-					<option value="Alive">Alive</option>
-					<option value="Dead">Dead</option>
-					<option value="unknown">Unknown</option>
-				</select>
-				<select
-					className="col form-select"
-					aria-label="Gender"
-				>
-					<option selected>Filter by gender</option>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
-					<option value="Unknown">Unknown</option>
-				</select>
-	
-			</div>
+		<div className="d-flex flex-column flex-sm-row justify-content-center align-items-center p-2 bd-highlight">
+			<select
+				className="form-select mx-4"
+				aria-label="Status"
+				style={{ width: "18rem" }}
+			>
+				<option selected>Filter by status</option>
+				<option value="Alive">Alive</option>
+				<option value="Dead">Dead</option>
+				<option value="unknown">Unknown</option>
+			</select>
+			<select
+				className="form-select mx-4"
+				aria-label="Gender"
+				style={{ width: "18rem" }}
+			>
+				<option selected>Filter by gender</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="Unknown">Unknown</option>
+			</select>
 		</div>
 	);
 };

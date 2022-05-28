@@ -1,13 +1,27 @@
 import React from "react";
 
-const Searchbar = () => {
+const Searchbar = ({ search, setSearch, setPageNum }) => {
+	const updateChar = (event) => {
+		setPageNum(1);
+		setSearch(event.target.value);
+	};
+
 	return (
-		<div className="d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-4">
-			<label htmlFor="search" className="col-sm-2 col-form-label text-center bg-dark border border-2 border-success rounded">
+		<div className="d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-3">
+			<label
+				htmlFor="search"
+				className="col-sm-2 col-form-label text-center bg-dark border border-2 border-success rounded"
+			>
 				Search for Character:
 			</label>
 			<div className="col-sm-4">
-				<input type="text" className="form-control " id="search" />
+				<input
+					onChange={updateChar}
+					// value={search}
+					type="text"
+					className="form-control search"
+					id="search"
+				/>
 			</div>
 		</div>
 	);

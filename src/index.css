@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Blaka&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blaka&display=swap");
 
 body {
 	margin: 0;
@@ -9,9 +9,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 
 	color: white;
-	background: url('./images/wallpaper.jpg');
-	background-size: 100vw;
-
+	background: url("./images/wallpaper.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 code {
