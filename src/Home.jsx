@@ -8,8 +8,10 @@ const Home = () => {
 	const [charArr, setCharArr] = useState([]);
 	const [pageNum, setPageNum] = useState(1);
 	const [search, setSearch] = useState("");
+	const [status, setStatus] = useState("");
+	const [gender, setGender] = useState("");
 
-	const api = `https://rickandmortyapi.com/api/character/?page=${pageNum}&name=${search}`;
+	const api = `https://rickandmortyapi.com/api/character/?page=${pageNum}&name=${search}&status=${status}&gender=${gender}`;
 
 	useEffect(() => {
 		fetch(api)
@@ -27,12 +29,12 @@ const Home = () => {
 	return (
 		<div>
 			<figure className="text-center mt-3">
-				<blockquote className="blockquote fs-5">
-					<p>
+				<blockquote className="blockquote fs-5 mx-2">
+					<h5>
 						"To live is to risk it all; otherwise you’re just an inert chunk of
 						randomly assembled molecules drifting wherever the universe blows
 						you."
-					</p>
+					</h5>
 				</blockquote>
 				<figcaption className="blockquote-footer fs-6 light text-white">
 					<cite title="Source Title">Rick</cite>
@@ -40,7 +42,11 @@ const Home = () => {
 			</figure>
 
 			<Searchbar setSearch={setSearch} setPageNum={setPageNum} />
-			<Filters />
+			<Filters
+				setStatus={setStatus}
+				setGender={setGender}
+				setPageNum={setPageNum}
+			/>
 			<Cards charArr={charArr} />
 		</div>
 	);
