@@ -30,10 +30,6 @@ const Home = () => {
 			});
 	}, [api]);
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
-
 	return (
 		<div>
 			<figure className="text-center mt-3">

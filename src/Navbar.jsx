@@ -5,6 +5,14 @@ const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container-fluid">
+				<img
+					src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+					alt=""
+					width="25"
+					height="25"
+					className="d-inline-block align-text-top rounded"
+					style={{ marginRight: "10px" }}
+				/>
 				<Link to="/" className="navbar-brand">
 					Rick & Morty Database
 				</Link>
