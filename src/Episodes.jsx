@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Cards from "./Cards";
 
 const Episodes = () => {
 	const [totalEpisodes, setTotalEpisodes] = useState(0);
@@ -6,6 +7,8 @@ const Episodes = () => {
 	const [episodeName, setEpisodeName] = useState("");
 	const [episodeDate, setEpisodeDate] = useState("");
 	const [seasonEpisode, setSeasonEpisode] = useState("");
+	const [charLinkArr, setCharLinkArr] = useState([]);
+	const [charArr, setCharArr] = useState([]);
 
 	const totalEpisodesAPI = "https://rickandmortyapi.com/api/episode";
 
@@ -34,9 +37,34 @@ const Episodes = () => {
 				setEpisodeName(data.name);
 				setEpisodeDate(data.air_date);
 				setSeasonEpisode(data.episode);
+				setCharLinkArr(data.characters);
+				console.log("charlinkarr", charLinkArr);
 			});
+
+		// for (const charLink of charLinkArr) {
+		// 	fetch(charLink)
+		// 		.then((response) => response.json())
+		// 		.then((data) => {
+		// 			setCharArr([...charArr, data]);
+		// 			console.log(charArr);
+		// 		});
+		// }
+
+		// console.log("charArr", charArr);
 	}, [api]);
 
+	useEffect(() => {
+		(async function () {
+			let a = await Promise.all(
+				charLinkArr.map((link) => {
+					return fetch(link).then((res) => res.json());
+				})
+			);
+			setCharArr(a);
+		})();
+	}, [charLinkArr]);
+
+	// console.log("charArr", charArr);
 	return (
 		<>
 			<h1 className="text-center mt-3">Episodes</h1>
@@ -60,6 +88,7 @@ const Episodes = () => {
 			<h3 className="text-center bg-dark">
 				{episodeName} — {seasonEpisode} — {episodeDate}
 			</h3>
+			<Cards charArr={charArr} />
 		</>
 	);
 };
