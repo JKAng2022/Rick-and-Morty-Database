@@ -12,7 +12,7 @@ const Cards = ({ charArr }) => {
 							className="card mx-3 my-3"
 							key={index}
 							style={{ width: "10rem", cursor: "pointer" }}
-							onClick={() => navigate(`/${char.id}`)}
+							onClick={() => navigate(`/char/${char.id}`)}
 						>
 							<img
 								src={char.image}
