@@ -17,16 +17,15 @@ const Home = () => {
 
 	useEffect(() => {
 		fetch(api)
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error(response.statusText);
-				}
-				return response.json();
-			})
+			.then((response) => response.json())
 			.then((data) => {
-				setCharArr(data?.results);
-				console.log("total pages", data?.info?.pages);
-				setTotalPages(data?.info?.pages);
+				if (data?.results) {
+					setCharArr(data?.results);
+					setTotalPages(data?.info?.pages);
+				} else {
+					setCharArr(null);
+					setTotalPages(1);
+				}
 			});
 	}, [api]);
 

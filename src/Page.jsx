@@ -5,8 +5,6 @@ const Page = ({ totalPages, setPageNum, pageNum }) => {
 
 	const arr = [];
 
-	console.log("thisispagenum", pageNum);
-
 	for (let i = 1; i <= totalPages; i++) {
 		arr.push(i);
 	}
