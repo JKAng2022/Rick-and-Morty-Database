@@ -1,30 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 
-const Locations = () => {
-	const [totalLocations, setTotalLocations] = useState(0);
+const Locations = ({ locationNames }) => {
 	const [locationID, setLocationID] = useState(1);
 	const [locationName, setLocationName] = useState("");
 	const [locationType, setLocationType] = useState("");
 	const [locationDimension, setLocationDimension] = useState("");
 	const [charLinkArr, setCharLinkArr] = useState([]);
 	const [charArr, setCharArr] = useState([]);
-
-	const totalEpisodesAPI = "https://rickandmortyapi.com/api/location";
-
-	useEffect(() => {
-		fetch(totalEpisodesAPI)
-			.then((response) => response.json())
-			.then((data) => {
-				setTotalLocations(data?.info?.count);
-			});
-	}, []);
-
-	const locationsArr = [];
-
-	for (let i = 1; i <= totalLocations; i++) {
-		locationsArr.push(i);
-	}
 
 	const api = `https://rickandmortyapi.com/api/location/${locationID}`;
 
@@ -34,23 +17,11 @@ const Locations = () => {
 		fetch(api)
 			.then((response) => response.json())
 			.then((data) => {
-				setLocationName(data.name);
-				setLocationType(data.type);
-				setLocationDimension(data.dimension);
-				setCharLinkArr(data.residents);
-				console.log("charlinkarr", charLinkArr);
+				setLocationName(data?.name);
+				setLocationType(data?.type);
+				setLocationDimension(data?.dimension);
+				setCharLinkArr(data?.residents);
 			});
-
-		// for (const charLink of charLinkArr) {
-		// 	fetch(charLink)
-		// 		.then((response) => response.json())
-		// 		.then((data) => {
-		// 			setCharArr([...charArr, data]);
-		// 			console.log(charArr);
-		// 		});
-		// }
-
-		// console.log("charArr", charArr);
 	}, [api]);
 
 	// Adapted from https://stackoverflow.com/questions/31710768/how-can-i-fetch-an-array-of-urls-with-promise-all from user Bergi
@@ -67,7 +38,6 @@ const Locations = () => {
 		makeApiCall();
 	}, [charLinkArr]);
 
-	// console.log("charArr", charArr);
 	return (
 		<>
 			<h1 className="text-center mt-3">Locations</h1>
@@ -81,9 +51,9 @@ const Locations = () => {
 					<option value="1" selected>
 						Choose Location
 					</option>
-					{locationsArr.map((location, index) => (
-						<option key={index} value={location}>
-							Location {location}
+					{locationNames.map((location, index) => (
+						<option key={index} value={index + 1}>
+							{location}
 						</option>
 					))}
 				</select>
