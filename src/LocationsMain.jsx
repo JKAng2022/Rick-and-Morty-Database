@@ -37,10 +37,21 @@ const LocationsMain = () => {
 		makeApiCall();
 	}, [pull]);
 
-	console.log("locationNames", locationNames);
+	const handleClick = () => setPull(!pull);
 
 	return (
-		<Locations locationNames={locationNames} setPull={setPull} pull={pull} />
+		<>
+			<h1 className="text-center mt-3">Locations</h1>
+			<div className="d-flex justify-content-center mb-2">
+				<button
+					onClick={handleClick}
+					className="text-center text-white bg-dark border border-2 border-success rounded py-1 px-3"
+				>
+					Update
+				</button>
+			</div>
+			<Locations locationNames={locationNames} />
+		</>
 	);
 };
 

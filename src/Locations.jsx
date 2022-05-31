@@ -40,7 +40,6 @@ const Locations = ({ locationNames }) => {
 
 	return (
 		<>
-			<h1 className="text-center mt-3">Locations</h1>
 			<div className="d-flex flex-wrap align-items-center justify-content-center mb-3">
 				<select
 					onChange={changeLocation}
