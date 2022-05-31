@@ -1,43 +1,43 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 
-const Episodes = () => {
-	const [totalEpisodes, setTotalEpisodes] = useState(0);
-	const [episodeID, setEpisodeID] = useState(1);
-	const [episodeName, setEpisodeName] = useState("");
-	const [episodeDate, setEpisodeDate] = useState("");
-	const [seasonEpisode, setSeasonEpisode] = useState("");
+const Locations = () => {
+	const [totalLocations, setTotalLocations] = useState(0);
+	const [locationID, setLocationID] = useState(1);
+	const [locationName, setLocationName] = useState("");
+	const [locationType, setLocationType] = useState("");
+	const [locationDimension, setLocationDimension] = useState("");
 	const [charLinkArr, setCharLinkArr] = useState([]);
 	const [charArr, setCharArr] = useState([]);
 
-	const totalEpisodesAPI = "https://rickandmortyapi.com/api/episode";
+	const totalEpisodesAPI = "https://rickandmortyapi.com/api/location";
 
 	useEffect(() => {
 		fetch(totalEpisodesAPI)
 			.then((response) => response.json())
 			.then((data) => {
-				setTotalEpisodes(data?.info?.count);
+				setTotalLocations(data?.info?.count);
 			});
 	}, []);
 
-	const episodesArr = [];
+	const locationsArr = [];
 
-	for (let i = 1; i <= totalEpisodes; i++) {
-		episodesArr.push(i);
+	for (let i = 1; i <= totalLocations; i++) {
+		locationsArr.push(i);
 	}
 
-	const api = `https://rickandmortyapi.com/api/episode/${episodeID}`;
+	const api = `https://rickandmortyapi.com/api/location/${locationID}`;
 
-	const changeEpisode = (e) => setEpisodeID(e.target.value);
+	const changeLocation = (e) => setLocationID(e.target.value);
 
 	useEffect(() => {
 		fetch(api)
 			.then((response) => response.json())
 			.then((data) => {
-				setEpisodeName(data.name);
-				setEpisodeDate(data.air_date);
-				setSeasonEpisode(data.episode);
-				setCharLinkArr(data.characters);
+				setLocationName(data.name);
+				setLocationType(data.type);
+				setLocationDimension(data.dimension);
+				setCharLinkArr(data.residents);
 				console.log("charlinkarr", charLinkArr);
 			});
 
@@ -70,30 +70,31 @@ const Episodes = () => {
 	// console.log("charArr", charArr);
 	return (
 		<>
-			<h1 className="text-center mt-3">Episodes</h1>
+			<h1 className="text-center mt-3">Locations</h1>
 			<div className="d-flex flex-wrap align-items-center justify-content-center mb-3">
 				<select
-					onChange={changeEpisode}
+					onChange={changeLocation}
 					className="form-select mx-4 text-center bg-dark text-white"
 					aria-label="changeEpisode"
 					style={{ width: "15rem" }}
 				>
 					<option value="1" selected>
-						Choose Episode Number
+						Choose Location
 					</option>
-					{episodesArr.map((episode, index) => (
-						<option key={index} value={episode}>
-							Episode {episode}
+					{locationsArr.map((location, index) => (
+						<option key={index} value={location}>
+							Location {location}
 						</option>
 					))}
 				</select>
 			</div>
 			<h3 className="text-center bg-dark">
-				{episodeName} — {seasonEpisode} — {episodeDate}
+				Name: {locationName} | Dimension: {locationDimension} | Type:{" "}
+				{locationType}
 			</h3>
 			<Cards charArr={charArr} />
 		</>
 	);
 };
 
-export default Episodes;
+export default Locations;

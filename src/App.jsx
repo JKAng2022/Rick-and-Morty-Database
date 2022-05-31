@@ -7,6 +7,7 @@ import "./App.css";
 import Home from "./Home";
 import SpecificCard from "./SpecificCard";
 import Episodes from "./Episodes";
+import Locations from "./Locations";
 
 const App = () => {
 	return (
@@ -16,7 +17,7 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/episodes" element={<Episodes />} />
-				{/* <Route path="/locations" element={<Location />} /> */}
+				<Route path="/locations" element={<Locations />} />
 				<Route path="/char/:id" element={<SpecificCard />} />
 			</Routes>
 		</BrowserRouter>
