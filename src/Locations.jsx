@@ -43,16 +43,16 @@ const Locations = ({ locationNames }) => {
 			<div className="d-flex flex-wrap align-items-center justify-content-center mb-3">
 				<select
 					onChange={changeLocation}
-					className="form-select mx-4 text-center bg-dark text-white"
+					className="form-select mx-4 text-left bg-dark text-white"
 					aria-label="changeEpisode"
 					style={{ width: "15rem" }}
 				>
-					<option value="1" selected>
+					<option value="1" selected className="text-center">
 						Choose Location
 					</option>
 					{locationNames.map((location, index) => (
 						<option key={index} value={index + 1}>
-							{location}
+							{index + 1} — {location}
 						</option>
 					))}
 				</select>

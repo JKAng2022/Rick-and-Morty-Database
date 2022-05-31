@@ -48,6 +48,11 @@ const Navbar = () => {
 								Locations
 							</NavLink>
 						</li>
+						<li className="nav-item">
+							<NavLink to="/favs" className="nav-link" aria-current="page">
+								Favourites
+							</NavLink>
+						</li>
 					</ul>
 				</div>
 			</div>

@@ -1,9 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Cards.module.scss";
+import { useContext } from "react";
+import { FavsContext } from "./App";
 
 const Cards = ({ charArr }) => {
+	const context = useContext(FavsContext);
 	const navigate = useNavigate();
+
+	const handleClick = (char) => {
+		if (context.favsData.some((x) => x.id === char.id)) {
+			context.setFavsData(context.favsData.filter((x) => x.id !== char.id));
+		} else {
+			context.setFavsData([...context.favsData, char]);
+		}
+	};
+
 	if (charArr) {
 		return (
 			<div>
@@ -14,6 +26,19 @@ const Cards = ({ charArr }) => {
 							key={index}
 							style={{ width: "10rem" }}
 						>
+							<button
+								onClick={() => handleClick(char)}
+								type="button"
+								className={
+									context.favsData.some((x) => x.id === char.id)
+										? "btn btn-danger p-0"
+										: "btn btn-secondary p-0"
+								}
+							>
+								{context.favsData.some((x) => x.id === char.id)
+									? "Fav!"
+									: "Add to Favs"}
+							</button>
 							<img
 								src={char.image}
 								key={char.index}

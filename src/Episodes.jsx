@@ -38,7 +38,6 @@ const Episodes = () => {
 				setEpisodeDate(data.air_date);
 				setSeasonEpisode(data.episode);
 				setCharLinkArr(data.characters);
-				console.log("charlinkarr", charLinkArr);
 			});
 
 		// for (const charLink of charLinkArr) {
@@ -67,7 +66,6 @@ const Episodes = () => {
 		makeApiCall();
 	}, [charLinkArr]);
 
-	// console.log("charArr", charArr);
 	return (
 		<>
 			<h1 className="text-center mt-3">Episodes</h1>
