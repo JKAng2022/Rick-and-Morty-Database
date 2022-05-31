@@ -8,6 +8,7 @@ import Home from "./Home";
 import SpecificCard from "./SpecificCard";
 import Episodes from "./Episodes";
 import LocationsMain from "./LocationsMain";
+import Characters from "./Characters";
 
 const App = () => {
 	return (
@@ -16,6 +17,7 @@ const App = () => {
 
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/characters" element={<Characters />} />
 				<Route path="/episodes" element={<Episodes />} />
 				<Route path="/locations" element={<LocationsMain />} />
 				<Route path="/char/:id" element={<SpecificCard />} />

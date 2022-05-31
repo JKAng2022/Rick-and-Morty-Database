@@ -1,0 +1,10 @@
+/* https://www.w3schools.com/howto/howto_css_zoom_hover.asp */
+
+.zoom {
+	transition: transform 0.2s; /* Animation */
+}
+
+.zoom:hover {
+	transform: scale(1.15);
+	border: red solid;
+}

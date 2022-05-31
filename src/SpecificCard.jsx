@@ -20,6 +20,10 @@ const SpecificCard = () => {
 			});
 	}, []);
 
+	const styles = {
+		maxWidth: "540px",
+	};
+
 	return (
 		<div
 			className="d-flex align-items-center justify-content-center"
@@ -27,7 +31,7 @@ const SpecificCard = () => {
 		>
 			<div
 				className="card m-auto border-2 border-success rounded"
-				style={{ maxWidth: "540px" }}
+				style={styles}
 			>
 				<div className="row g-0">
 					<div className="col-sm-6 bg-dark">
@@ -55,9 +59,13 @@ const SpecificCard = () => {
 							<p className="card-text m-0">
 								<b>Location</b>: {char?.location?.name}
 							</p>
-							{/* <p className="card-text">
-							<small className="text-muted">Last updated 3 mins ago</small>
-						</p> */}
+							<a
+								href={`https://rickandmortyapi.com/api/character/${char?.id}`}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Episodes and more info
+							</a>
 						</div>
 					</div>
 				</div>

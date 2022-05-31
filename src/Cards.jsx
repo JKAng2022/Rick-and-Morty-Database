@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./Cards.module.scss";
 
 const Cards = ({ charArr }) => {
 	const navigate = useNavigate();
@@ -9,10 +10,9 @@ const Cards = ({ charArr }) => {
 				<div className="d-flex flex-wrap justify-content-center">
 					{charArr.map((char, index) => (
 						<div
-							className="card mx-3 my-3"
+							className={`card mx-3 my-3 ${styles.zoom}`}
 							key={index}
-							style={{ width: "10rem", cursor: "pointer" }}
-							onClick={() => navigate(`/char/${char.id}`)}
+							style={{ width: "10rem" }}
 						>
 							<img
 								src={char.image}
@@ -20,7 +20,11 @@ const Cards = ({ charArr }) => {
 								className="card-img-top"
 								alt={char.name}
 							/>
-							<div className="card-body bg-dark text-center">
+							<div
+								className="card-body bg-dark text-center"
+								onClick={() => navigate(`/char/${char.id}`)}
+								style={{ cursor: "pointer" }}
+							>
 								<h5 className="card-title">{char.name}</h5>
 								<p className="card-text m-0">Status: {char.status}</p>
 								<p className="card-text m-0">Gender: {char.gender}</p>
