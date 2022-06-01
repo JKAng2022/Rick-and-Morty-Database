@@ -11,6 +11,7 @@ A database for Rick and Morty fans that showcases over 800 characters from the R
 ### Technical Used
 
 ```
+- Javascript
 - React
 - Bootstrap
 - CSS
