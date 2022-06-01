@@ -14,19 +14,13 @@ import Favs from "./Favs";
 export const FavsContext = createContext();
 
 const App = () => {
-	const [favsData, setFavsData] = useState([]);
+	const [favsData, setFavsData] = useState(
+		JSON.parse(localStorage.getItem("favsData")) || []
+	);
 
-	// useEffect(() => {
-	// 	const items = JSON.parse(localStorage.getItem("favsData"));
-	// 	if (items) {
-	// 		setFavsData(items);
-	// 	}
-	// }, []);
-
-	// useEffect(() => {
-	// 	localStorage.setItem("favsData", JSON.stringify(favsData));
-	// 	console.log(JSON.parse(localStorage.getItem("favsData")));
-	// }, [favsData]);
+	useEffect(() => {
+		localStorage.setItem("favsData", JSON.stringify(favsData));
+	}, [favsData]);
 
 	return (
 		<FavsContext.Provider value={{ favsData, setFavsData }}>

@@ -60,7 +60,7 @@ const SpecificCard = () => {
 								<b>Location</b>: {char?.location?.name}
 							</p>
 							<a
-								href={`https://rickandmortyapi.com/api/character/${char?.id}`}
+								href={`https://jsonformatter.org/?url=https://rickandmortyapi.com/api/character/${char?.id}`}
 								target="_blank"
 								rel="noopener noreferrer"
 							>
