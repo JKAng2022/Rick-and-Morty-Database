@@ -1,10 +1,13 @@
 import React from "react";
+import debounce from "lodash.debounce";
 
 const Searchbar = ({ setSearch, setPageNum }) => {
 	const updateChar = (event) => {
 		setPageNum(1);
 		setSearch(event.target.value);
 	};
+
+	const debouncedUpdateChar = debounce(updateChar, 500);
 
 	return (
 		<div className="d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-1">
@@ -16,7 +19,7 @@ const Searchbar = ({ setSearch, setPageNum }) => {
 			</label>
 			<div className="col-sm-4">
 				<input
-					onChange={updateChar}
+					onChange={debouncedUpdateChar}
 					// value={search}
 					type="text"
 					className="form-control search"
