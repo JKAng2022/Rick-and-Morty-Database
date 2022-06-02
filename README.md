@@ -2,7 +2,7 @@
 
 ## Description
 
-A database for Rick and Morty fans, that showcases over 800 characters from the Rick and Morty show. Features
+A database for Rick and Morty fans that showcases over 800 characters from the Rick and Morty show. Features
 (1) Characters page: A dynamic search by name of character, with filters
 (2) Episodes page: Episode name and air date as well as as list of characters that appear in each episode
 (3) Locations page: List of all locations in the Rick and Morty Universe, as well as their inhabitants.
@@ -11,6 +11,7 @@ A database for Rick and Morty fans, that showcases over 800 characters from the 
 ### Technical Used
 
 ```
+- Javascript
 - React
 - Bootstrap
 - CSS
@@ -19,13 +20,11 @@ A database for Rick and Morty fans, that showcases over 800 characters from the 
 
 ### Wireframes
 
-Your step by step planning sketch of your project, that you can post them as an image in here.
+![wireframe](https://user-images.githubusercontent.com/103444807/171367138-cd306c45-c6b2-42d8-b47b-b3c1a0b15b96.png)
 
 ### User Stories
 
 ```
-Example:
-
 User must be able to:
 
 - Search for all characters in search bar
@@ -47,7 +46,7 @@ After the MVP was finished, I focused on additional functionality such as adding
 
 ### Challenges and solutions
 
-(1) When typing in the search bar, the search bar seems to hang and prevent me from typing. I realised that was because I had set the "loading" page to display when information was being fetched. It was able to work once i disabled that functionality.
+(1) When typing in the search bar, the search bar seemed to hang and prevent me from typing. I realised that was because I had set the "loading" page to display when information was being fetched. It was able to work once I disabled that functionality.
 
 (2) When making the reset filters, I realised that I would have to link the clearing of the filters with the settting of the labels back to their default selections, if not it would still display the wrong filters. I solved this by using the useRef() as a hook and setting an on-click that would set the `<select>` button back to the first selection.
 
@@ -64,10 +63,6 @@ Right now, the specific card information is rather limited. I would like to add 
 ## APIs Used
 
 Rick and Morty API - https://rickandmortyapi.com/
-
----
-
-## Acknowledgments
 
 ---
 
