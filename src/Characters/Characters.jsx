@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Searchbar from "./Searchbar";
 import Filters from "./Filters";
-import Cards from "./Cards";
+import Cards from "../Cards/Cards";
 import Page from "./Page";
 
 const Characters = () => {

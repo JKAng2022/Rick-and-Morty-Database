@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Cards from "./Cards";
+import Cards from "../Cards/Cards";
 
 const Locations = ({ locationNames }) => {
 	const [locationID, setLocationID] = useState(1);

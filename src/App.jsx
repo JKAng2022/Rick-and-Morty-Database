@@ -7,7 +7,7 @@ import Home from "./Home/Home";
 import SpecificCard from "./SpecificCard/SpecificCard";
 import Episodes from "./Episodes/Episodes";
 import LocationsMain from "./Locations/LocationsMain";
-import Characters from "./Characters";
+import Characters from "./Characters/Characters";
 import Favs from "./Favs/Favs";
 
 export const FavsContext = createContext();
