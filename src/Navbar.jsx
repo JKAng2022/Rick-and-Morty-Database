@@ -29,6 +29,7 @@ const Navbar = () => {
 				</button>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav ms-auto mb-2 mb-lg-0 mr-3">
+						{/* Navlink allows current link to be highlighted */}
 						<li className="nav-item">
 							<NavLink
 								to="/characters"

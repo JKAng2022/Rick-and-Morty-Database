@@ -20,7 +20,6 @@ const Searchbar = ({ setSearch, setPageNum }) => {
 			<div className="col-sm-4">
 				<input
 					onChange={debouncedUpdateChar}
-					// value={search}
 					type="text"
 					className="form-control search"
 					id="search"

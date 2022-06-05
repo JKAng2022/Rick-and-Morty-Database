@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { FavsContext } from "./App";
-import Cards from "./Cards";
+import { FavsContext } from "../App";
+import Cards from "../Cards/Cards";
 
 const Favs = () => {
 	const context = useContext(FavsContext);

@@ -3,17 +3,17 @@ import "bootstrap/dist/js/bootstrap";
 import React, { createContext, useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Home from "./Home";
-import SpecificCard from "./SpecificCard";
-import Episodes from "./Episodes";
-import LocationsMain from "./LocationsMain";
+import Home from "./Home/Home";
+import SpecificCard from "./SpecificCard/SpecificCard";
+import Episodes from "./Episodes/Episodes";
+import LocationsMain from "./Locations/LocationsMain";
 import Characters from "./Characters";
-import Favs from "./Favs";
+import Favs from "./Favs/Favs";
 
 export const FavsContext = createContext();
 
 const App = () => {
+	// favsData is an array of objects. Each object is an character.
 	const [favsData, setFavsData] = useState(
 		JSON.parse(localStorage.getItem("favsData")) || []
 	);

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Cards.module.scss";
 import { useContext } from "react";
-import { FavsContext } from "./App";
+import { FavsContext } from "../App";
 
 const Cards = ({ charArr }) => {
 	const context = useContext(FavsContext);
@@ -70,7 +70,3 @@ const Cards = ({ charArr }) => {
 };
 
 export default Cards;
-
-{
-	/* <img key={index} src={char.image} alt={char.name} /> */
-}

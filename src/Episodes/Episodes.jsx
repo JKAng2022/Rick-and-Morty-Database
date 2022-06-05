@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Cards from "./Cards";
+import Cards from "../Cards/Cards";
 
 const Episodes = () => {
 	const [totalEpisodes, setTotalEpisodes] = useState(0);
@@ -7,6 +7,7 @@ const Episodes = () => {
 	const [episodeName, setEpisodeName] = useState("");
 	const [episodeDate, setEpisodeDate] = useState("");
 	const [seasonEpisode, setSeasonEpisode] = useState("");
+	// charLinkArr is array of links to different characters. charArr is array of objects of characters.
 	const [charLinkArr, setCharLinkArr] = useState([]);
 	const [charArr, setCharArr] = useState([]);
 
@@ -39,17 +40,6 @@ const Episodes = () => {
 				setSeasonEpisode(data.episode);
 				setCharLinkArr(data.characters);
 			});
-
-		// for (const charLink of charLinkArr) {
-		// 	fetch(charLink)
-		// 		.then((response) => response.json())
-		// 		.then((data) => {
-		// 			setCharArr([...charArr, data]);
-		// 			console.log(charArr);
-		// 		});
-		// }
-
-		// console.log("charArr", charArr);
 	}, [api]);
 
 	// Adapted from https://stackoverflow.com/questions/31710768/how-can-i-fetch-an-array-of-urls-with-promise-all from user Bergi
